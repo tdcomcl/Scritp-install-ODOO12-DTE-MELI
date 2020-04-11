@@ -39,3 +39,4 @@ dicttoxml
 client
 pyOpenSSL
 pdf2image
+phonenumbers
