@@ -79,6 +79,6 @@ sleep 3s
 sudo /etc/init.d/odoo-server stop
 sleep 3s
 sudo /etc/init.d/odoo-server start
-rm autoinstall.sh odoo_install.sh
+#rm autoinstall.sh odoo_install.sh
 echo -e "Todo listo A disfrutar !!"
 
