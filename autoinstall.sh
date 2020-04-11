@@ -43,6 +43,7 @@ sleep 3s
 
 #falta subir archivo
 echo -e "\n---- Instando dependencias ----"
+wget https://raw.githubusercontent.com/tdcomcl/Scritp-install-ODOO12-DTE-MELI/master/requirements.txt
 pip3 install -r requirements.txt
 
 echo -e "\n---- Paso 2 listo ----"
