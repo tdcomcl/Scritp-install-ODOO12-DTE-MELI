@@ -63,11 +63,16 @@ sudo git clone --branch 12.0 git@gitlab.com:dansanti/payment_flow.git
 sudo git clone --branch 12.0 https://github.com/ctmil/meli_oerp 
 
 echo -e "Inicio borrar y crear archivo odoo.conf"
-sleep 6s
+sleep 3s
 rm /etc/odoo-server.conf
 touch /etc/odoo-server.conf
+sudo su root -c "printf '[options]\n' >> /etc/odoo-server.conf"
+sudo su root -c "printf 'admin_passwd = admin\n' >> /etc/odoo-server.conf"
+sudo su root -c "printf 'xmlrpc_port = 8069\n' >> /etc/odoo-server.conf"
+sudo su root -c "printf 'logfile = /var/log/odoo/odoo-server.log\n' >> /etc/odoo-server.conf"
+sudo su root -c "printf 'addons_path=/odoo/odoo-server/addons,/odoo/custom/addons,/odoo/custom/addons/addons-konos,/odoo/custom/addons/reporting-engine' >> /etc/odoo-server.conf"
+
 sudo chown -R odoo:odoo /etc/odoo-server.conf
-sudo su root -c "[options]\n'admin_passwd = admin\nxmlrpc_port = 8069\nlogfile = /var/log/odoo/odoo-server.log\naddons_path=/odoo/odoo-server/addons,/odoo/custom/addons,/odoo/custom/addons/addons-konos,/odoo/custom/addons/reporting-engine >> /etc/odoo-server.conf"
 echo -e "Reiniciar servicio odoo"
 sleep 3s
 sudo /etc/init.d/odoo-server stop
